@@ -2,7 +2,10 @@ CREATE TABLE tbJogadores(
 	id BIGINT(10) PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(150) NOT NULL,
 	saldoGols INT DEFAULT 0,
-	idTime BIGINT(10) NOT NULL
+	login VARCHAR(100) NOT NULL,
+	senha VARCHAR(100) NOT NULL,
+	idTime BIGINT(10) NOT NULL,
+	tipoUsuario VARCHAR(30) NOT NULL
 );
 
 INSERT INTO tbJogadores(nome, saldoGols, idTime) VALUES (dto.getNome(),dto.getSaldoGols(), dto.getIdTime());
@@ -33,3 +36,5 @@ CREATE TABLE tbPartidas(
 );
 
 INSERT INTO tbPartidas (idTimeCasa, idTimeAdversario, golsCasa, golsAdversario, vencedor) VALUES (dto.getTimeCasa().getId(), dto.getTimeAdversario().getId(), dto.getTimeCasa().getSaldoGols(), dto.getTimeAdversario().getId(), vencedor.getId());
+
+SELECT * FROM tbPartidas WHERE idTimeCasa = ? OR idTimeAdversario = ?

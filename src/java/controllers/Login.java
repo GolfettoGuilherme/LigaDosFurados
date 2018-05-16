@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class Login extends HttpServlet {
 
@@ -32,6 +33,8 @@ public class Login extends HttpServlet {
             JuizDTO dto = new JogadorBLL().loginJuiz(usuario, senha);
             if (dto != null) {
                 request.setAttribute("usuario", dto);
+                HttpSession session = request.getSession(true);
+                session.setAttribute("usuario", dto);
                 paginaDestino = "/homeJuiz.jsp";
             } else {
                 request.setAttribute("mensagem", "usuario não cadastrado");
@@ -42,6 +45,8 @@ public class Login extends HttpServlet {
             JogadorDTO dto = new JogadorBLL().loginJogador(usuario, senha);
             if (dto != null) {
                 request.setAttribute("usuario", dto);
+                HttpSession session = request.getSession(true);
+                session.setAttribute("usuario", dto);
                 paginaDestino = "/homeJogador.jsp";
             } else {
                 request.setAttribute("mensagem", "usuario não cadastrado");
