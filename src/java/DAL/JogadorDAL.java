@@ -73,7 +73,7 @@ public class JogadorDAL {
         try {
             String sql = "INSERT INTO tbJogadores"
                     + "(nome, saldoGols, idTime, login, senha, tipoUsuario) "
-                    + "VALUES (?,?,?);";
+                    + "VALUES (?,?,?,?,?,?);";
             PreparedStatement insert = this.conn.prepareStatement(sql);
             insert.setString(1, dto.getNome());
             insert.setInt(2, dto.getSaldoGols());
@@ -104,6 +104,7 @@ public class JogadorDAL {
             update.setInt(3, dto.getIdTime());
             update.setString(4, dto.getLogin());
             update.setString(5, dto.getSenha());
+            update.setInt(6, dto.getId());
 
             update.executeUpdate();
             update.close();
@@ -158,11 +159,11 @@ public class JogadorDAL {
 
         return lista;
     }
-    
+
     public List<JogadorDTO> buscaTodosJogadores() {
         List<JogadorDTO> lista = new ArrayList<>();
         try {
-            String sql = "SELECT * FROM tbJogadores AND tipoUsuario = 'Jogador'";
+            String sql = "SELECT * FROM tbJogadores WHERE tipoUsuario = 'Jogador'";
             PreparedStatement st = conn.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
@@ -184,7 +185,7 @@ public class JogadorDAL {
 
         return lista;
     }
-    
+
     public JogadorDTO buscaJogadorPorId(int idJogador) {
         JogadorDTO dto = null;
         try {

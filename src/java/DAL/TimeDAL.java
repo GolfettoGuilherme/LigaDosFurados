@@ -56,6 +56,25 @@ public class TimeDAL {
         return retorno;
     }
 
+    public boolean ajustarSaldoGols(TimeDTO dto) {
+        boolean retorno;
+        try {
+            String sql = "UPDATE tbTimes SET saldoGols = ? WHERE id = ?;";
+
+            PreparedStatement update = this.conn.prepareStatement(sql);
+            update.setInt(1, dto.getSaldoGols());
+            update.setInt(2, dto.getId());
+
+            update.executeUpdate();
+            update.close();
+            retorno = true;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            retorno = false;
+        }
+        return retorno;
+    }
+
     public boolean excluirTime(TimeDTO dto) {
         boolean retorno;
         try {

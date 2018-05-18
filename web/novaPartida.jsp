@@ -1,6 +1,3 @@
-<%@page import="BLL.TimeBLL"%>
-<%@page import="DTO.TimeDTO"%>
-<%@page import="java.util.List"%>
 <%@page import="DTO.JuizDTO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
@@ -9,35 +6,35 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastro Jogador</title>
+        <title>Registrar Partida</title>
     </head>
     <body>
-        <h1>Bem vindo Juiz: ${usuario.getNome()}</h1>
-        <h1>Novo Jogador</h1>
+        <h1>Bem Vindo Juiz: ${usuario.getNome()}!</h1>
         <ul>
-            <li style=" display: inline;"><a href="TimeServlet?acao=lista">Organiza Time</a> |</li>
+            <li style=" display: inline;"><a href="TimeServlet?acao=lista">Organiza Times</a> |</li>
             <li style=" display: inline;"><a href="JogadorServlet?acao=lista">Organiza Jogador</a> |</li>
             <li style=" display: inline;"><a href="PartidaServlet?acao=lista">Organiza Partidas</a> </li>
         </ul>
-        <form role="form" method="POST" action="JogadorServlet">
+        <h2>Registrar Partida</h2>
+        <form role="form" action="PartidaServlet" method="POST">
             <input type="hidden" name="acao" value="cadastra"/>
-            Nome:
-            <input type="text" name="txtNomeJogador"/>
-            <br>
-            Login:
-            <input type="text" name="txtLoginJogador"/>
-            <br>
-            Senha:
-            <input type="password" name="txtSenhaJogador"/>
-            <br>
-            Time:
-            <select name="timeJogadorId">
+            Time da casa:
+            <select name="idTimeCasa">
                 <c:forEach items="${listaTimes}" var="time">
                     <option value="${time.id}">${time.nome}</option>
                 </c:forEach>
             </select>
+            <input type="number" name="txtSaldoGolsTimeCasa"/>
             <br>
-            <input type="submit" value="Enviar"/>
+            Time Adversário
+            <select name="idTimeAdversario">
+                <c:forEach items="${listaTimes}" var="time">
+                    <option value="${time.id}">${time.nome}</option>
+                </c:forEach>
+            </select>
+            <input type="number" name="txtSaldoGolsTimeAdversario"/>
+            <br>
+            <input type="submit" value="Enviar" />
         </form>
     </body>
 </html>

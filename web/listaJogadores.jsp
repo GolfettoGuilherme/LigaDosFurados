@@ -1,3 +1,4 @@
+<%@page import="DTO.JogadorDTO"%>
 <%@page import="BLL.TimeBLL"%>
 <%@page import="DTO.JuizDTO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -37,7 +38,7 @@
                         <td>${jogador.nome}</td>
                         <td>${jogador.saldoGols}</td>
                         <td>${jogador.login}</td>
-                        <td>${bll.buscaTimePorId(jogador.idTime)}</td>
+                        <td><% out.print(bll.buscaTimePorId(((JogadorDTO) pageContext.getAttribute("jogador")).getIdTime()).getNome());%></td>
                         <td><a href='JogadorServlet?acao=alteracao&idJogador=${jogador.id}'>alterar</a></td>
                         <td><a href='JogadorServlet?acao=remocao&idJogador=${jogador.id}'>remover</a></td>
                     </tr>

@@ -5,7 +5,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <% JuizDTO usuario = (JuizDTO) session.getAttribute("usuario");%>
-<% List<TimeDTO> listaTimes = new TimeBLL().buscaTimes(); %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -26,24 +25,29 @@
             Nome:
             <input type="text" name="txtNomeJogador" value="${jogador.nome}"/>
             <br>
+            Saldo de Gols:
+            <input type="number" name="txtSaldoGolsJogados" value="${jogador.saldoGols}"/>
+            <br>
             Login:
             <input type="text" name="txtLoginJogador" value="${jogador.nome}"/>
             <br>
             Senha:
             <input type="password" name="txtSenhaJogador" value="${jogador.nome}"/>
             <br>
+            Time:
             <select name="timeJogadorId">
                 <c:forEach items="${listaTimes}" var="time">
                     <c:choose>
                         <c:when test="${item.id == jogador.idTime}">
-                            <option value="${time.id}" selected="selected">${time.nome}</option>    
-                        </c:when>    
+                            <option value="${time.id}" selected>${time.nome}</option>
+                        </c:when>
                         <c:otherwise>
                             <option value="${time.id}">${time.nome}</option>
                         </c:otherwise>
-                    </c:choose> 
+                    </c:choose>
                 </c:forEach>
             </select>
+            <br>
             <input type="submit" value="Atualizar"/>
         </form>
     </body>

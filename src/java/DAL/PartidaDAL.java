@@ -73,4 +73,33 @@ public class PartidaDAL {
         return lista;
     }
 
+    public List<PartidaDTO> buscarTodasPartidas() {
+        List<PartidaDTO> lista = new ArrayList<>();
+        TimeDAL timeDal = new TimeDAL();
+        try {
+            String sql = "SELECT * FROM tbPartidas";
+            PreparedStatement st = conn.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                PartidaDTO dto = new PartidaDTO();
+
+                dto.setId(rs.getInt("id"));
+                dto.setTimeCasa(timeDal.buscarTimePorId(rs.getInt("idTimeCasa")));
+                dto.setTimeAdversario(timeDal.buscarTimePorId(rs.getInt("idTimeAdversario")));
+                dto.setGolsCasa(rs.getInt("golsCasa"));
+                dto.setGoldAdversario(rs.getInt("golsAdversario"));
+                dto.setVencedor(timeDal.buscarTimePorId(rs.getInt("vencedor")));
+
+                lista.add(dto);
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return lista;
+    }
+
 }

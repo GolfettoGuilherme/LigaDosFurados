@@ -8,7 +8,7 @@ public class TimeBLL {
 
     public boolean cadastraTime(String nomeTime) {
         TimeDTO dto = new TimeDTO();
-        dto.setNome(nomeTime);        
+        dto.setNome(nomeTime);
         return new TimeDAL().inserirTime(dto);
     }
 
@@ -18,6 +18,13 @@ public class TimeBLL {
         novDto.setNome(novoNomeTime);
         novDto.setSaldoGols(novoSaldoGols);
         return new TimeDAL().alterarTime(novDto);
+    }
+
+    public boolean ajustaSaldoGols(int idTime, int saldoGols) {
+        TimeDTO novDto = new TimeDTO();
+        novDto.setId(idTime);
+        novDto.setSaldoGols(saldoGols);
+        return new TimeDAL().ajustarSaldoGols(novDto);
     }
 
     public boolean deletaTime(TimeDTO dto) {
