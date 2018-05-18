@@ -6,12 +6,18 @@ import java.util.List;
 
 public class TimeBLL {
 
-    public boolean cadastraTime(TimeDTO dto) {
+    public boolean cadastraTime(String nomeTime) {
+        TimeDTO dto = new TimeDTO();
+        dto.setNome(nomeTime);        
         return new TimeDAL().inserirTime(dto);
     }
 
-    public boolean alterarTime(TimeDTO dto) {
-        return new TimeDAL().alterarTime(dto);
+    public boolean alterarTime(int idTimeAntigo, String novoNomeTime, int novoSaldoGols) {
+        TimeDTO novDto = new TimeDTO();
+        novDto.setId(idTimeAntigo);
+        novDto.setNome(novoNomeTime);
+        novDto.setSaldoGols(novoSaldoGols);
+        return new TimeDAL().alterarTime(novDto);
     }
 
     public boolean deletaTime(TimeDTO dto) {

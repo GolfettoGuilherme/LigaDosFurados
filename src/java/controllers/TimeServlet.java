@@ -49,16 +49,13 @@ public class TimeServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String nomeJuiz = request.getParameter("nomeJuiz");
         String acao = request.getParameter("acao");
         TimeBLL bll = new TimeBLL();
         switch (acao) {
             case "cadastra":
                 String nomeTime = request.getParameter("txtNomeTime");
-                TimeDTO dto = new TimeDTO();
-                dto.setNome(nomeTime);
 
-                bll.cadastraTime(dto);
+                bll.cadastraTime(nomeTime);
                 request.setAttribute("listaTimes", new TimeBLL().buscaTimes());
                 request.getRequestDispatcher("/listaTimes.jsp").forward(request, response);
                 break;
@@ -67,13 +64,8 @@ public class TimeServlet extends HttpServlet {
                 String novoNomeTime = request.getParameter("txtNomeTime");
                 int novoSaldoGols = Integer.parseInt(request.getParameter("txtSaldoGolsTime"));
 
-                TimeDTO novDto = new TimeDTO();
-
-                novDto.setId(idTimeAntigo);
-                novDto.setNome(novoNomeTime);
-                novDto.setSaldoGols(novoSaldoGols);
-
-                bll.alterarTime(novDto);
+                bll.alterarTime(idTimeAntigo, novoNomeTime, novoSaldoGols);
+                
                 request.setAttribute("listaTimes", new TimeBLL().buscaTimes());
                 request.getRequestDispatcher("/listaTimes.jsp").forward(request, response);
                 break;

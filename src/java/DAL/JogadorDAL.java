@@ -158,4 +158,55 @@ public class JogadorDAL {
 
         return lista;
     }
+    
+    public List<JogadorDTO> buscaTodosJogadores() {
+        List<JogadorDTO> lista = new ArrayList<>();
+        try {
+            String sql = "SELECT * FROM tbJogadores AND tipoUsuario = 'Jogador'";
+            PreparedStatement st = conn.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                JogadorDTO dto = new JogadorDTO();
+                dto.setId(rs.getInt("id"));
+                dto.setNome(rs.getString("nome"));
+                dto.setSaldoGols(rs.getInt("saldoGols"));
+                dto.setLogin(rs.getString("login"));
+                dto.setSenha(rs.getString("senha"));
+                dto.setIdTime(rs.getInt("idTime"));
+                lista.add(dto);
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return lista;
+    }
+    
+    public JogadorDTO buscaJogadorPorId(int idJogador) {
+        JogadorDTO dto = null;
+        try {
+            String sql = "SELECT * FROM tbJogadores WHERE id = ?";
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.setInt(1, idJogador);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                dto = new JogadorDTO();
+                dto.setId(rs.getInt("id"));
+                dto.setNome(rs.getString("nome"));
+                dto.setSaldoGols(rs.getInt("saldoGols"));
+                dto.setLogin(rs.getString("login"));
+                dto.setSenha(rs.getString("senha"));
+                dto.setIdTime(rs.getInt("idTime"));
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return dto;
+    }
 }
