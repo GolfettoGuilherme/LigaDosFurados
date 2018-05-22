@@ -8,36 +8,65 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="todocss.css" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastro Jogador</title>
     </head>
     <body>
-        <h1>Bem vindo Juiz: ${usuario.getNome()}</h1>
-        <h1>Novo Jogador</h1>
-        <ul>
-            <li style=" display: inline;"><a href="TimeServlet?acao=lista">Organiza Time</a> |</li>
-            <li style=" display: inline;"><a href="JogadorServlet?acao=lista">Organiza Jogador</a> |</li>
-            <li style=" display: inline;"><a href="PartidaServlet?acao=lista">Organiza Partidas</a> </li>
-        </ul>
-        <form role="form" method="POST" action="JogadorServlet">
-            <input type="hidden" name="acao" value="cadastra"/>
-            Nome:
-            <input type="text" name="txtNomeJogador"/>
-            <br>
-            Login:
-            <input type="text" name="txtLoginJogador"/>
-            <br>
-            Senha:
-            <input type="password" name="txtSenhaJogador"/>
-            <br>
-            Time:
-            <select name="timeJogadorId">
-                <c:forEach items="${listaTimes}" var="time">
-                    <option value="${time.id}">${time.nome}</option>
-                </c:forEach>
-            </select>
-            <br>
-            <input type="submit" value="Enviar"/>
-        </form>
+        <div class="menu" style="float: left;">
+            <div>
+                <h1>${usuario.getNome()}</h1>
+                <ul>
+                    <li><a href="TimeServlet?acao=lista">Organiza Times</a></li>
+                    <li><a href="JogadorServlet?acao=lista">Organiza Jogador</a></li>
+                    <li><a href="PartidaServlet?acao=lista">Organiza Partidas</a></li>
+                </ul>
+
+                <a href="index.html">Sair</a>
+            </div>
+        </div>
+        <div>
+            <div class="title" style="
+                    box-shadow: 0px 5px 22px -9px;
+                    margin-bottom: 2%;
+                    padding-left: 21%;
+                    padding-bottom: 1px;"> 
+                    <h2 style="margin-top:0 !important;
+                                font-family: sans-serif;padding-top: 14px;">Novo Jogador</h2>
+            </div>
+            <div style="box-shadow: 0px 10px 54px 0px rgba(0,0,0,0.2);
+                transition: 0.3s;
+                width: 80%;
+                margin-left: 19%;
+                border-radius: 5px;
+                height: 87vh;
+                padding-top: 3%;
+                padding-left: 30px;
+                background-color: white;">
+                    <form role="form" method="POST" action="JogadorServlet">
+                        <input type="hidden" name="acao" value="cadastra"/>
+                        Nome:
+                        <input type="text" class="form-control col-md-4" name="txtNomeJogador"/>
+                        <br>
+                        Login:
+                        <input type="text" class="form-control col-md-4" name="txtLoginJogador"/>
+                        <br>
+                        Senha:
+                        <input class="form-control col-md-4" type="password" name="txtSenhaJogador"/>
+                        <br>
+                        Time:
+                        <br />
+                        <select class="custom-select col-md-4" name="timeJogadorId">
+                            <c:forEach items="${listaTimes}" var="time">
+                                <option value="${time.id}">${time.nome}</option>
+                            </c:forEach>
+                        </select>
+                        <br>
+                        <input class="btn btn-success" type="submit" value="Enviar" style="margin-top: 20px;"/>
+                    </form>
+            </div>
+        </div>
     </body>
 </html>

@@ -4,17 +4,22 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="todocss.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Home do Juiz</title>
     </head>
     <body>
-        <h1>Bem Vindo Juiz: ${usuario.getNome()}!</h1>
-        <ul>
-            <li style=" display: inline;"><a href="TimeServlet?acao=lista">Organiza Times</a> |</li>
-            <li style=" display: inline;"><a href="JogadorServlet?acao=lista">Organiza Jogador</a> |</li>
-            <li style=" display: inline;"><a href="PartidaServlet?acao=lista">Organiza Partidas</a> </li>
-        </ul>
+         <div class="menu">
+            <div>
+                <h1 style='    font-size: 32px;'>${usuario.getNome()}</h1>
+                <ul>
+                    <li><a href="TimeServlet?acao=lista">Organiza Times</a></li>
+                    <li><a href="JogadorServlet?acao=lista">Organiza Jogador</a></li>
+                    <li><a href="PartidaServlet?acao=lista">Organiza Partidas</a></li>
+                </ul>
 
-        <a href="index.html">Sair</a>
+                <a href="index.html">Sair</a>
+            </div>
+         </div>
     </body>
 </html>

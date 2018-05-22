@@ -3,13 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/work/LigaDosFurados/web/listaPartidas.jsp</file>
-            <file>file:/E:/work/LigaDosFurados/src/java/DAL/TimeDAL.java</file>
-            <file>file:/E:/work/LigaDosFurados/src/java/BLL/TimeBLL.java</file>
-            <file>file:/E:/work/LigaDosFurados/src/java/controllers/JogadorServlet.java</file>
-            <file>file:/E:/work/LigaDosFurados/src/java/BLL/PartidaBLL.java</file>
-            <file>file:/E:/work/LigaDosFurados/src/java/controllers/PartidaServlet.java</file>
-            <file>file:/E:/work/LigaDosFurados/src/java/DAL/PartidaDAL.java</file>
+            <file>file:/C:/Users/TeuGu/Projetos/TrabalhosFacul/LigaDosFurados/web/index.html</file>
+            <file>file:/C:/Users/TeuGu/Projetos/TrabalhosFacul/LigaDosFurados/web/css/style.css</file>
+            <file>file:/C:/Users/TeuGu/Projetos/TrabalhosFacul/LigaDosFurados/web/novoJogador.jsp</file>
+            <file>file:/C:/Users/TeuGu/Projetos/TrabalhosFacul/LigaDosFurados/web/homeJuiz.jsp</file>
+            <file>file:/C:/Users/TeuGu/Projetos/TrabalhosFacul/LigaDosFurados/web/home.jsp</file>
+            <file>file:/C:/Users/TeuGu/Projetos/TrabalhosFacul/LigaDosFurados/web/listaTimes.jsp</file>
+            <file>file:/C:/Users/TeuGu/Projetos/TrabalhosFacul/LigaDosFurados/web/js/waypoints.js</file>
         </group>
     </open-files>
 </project-private>

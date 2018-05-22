@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:800|Poppins:500');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+
+.intro {
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    background: url(../img/soccer2.jpg) no-repeat 50% 50%;
+    background-size: cover;
+    display: table;
+    top: 0;
+}
+
+.intro .inner {
+    display: table-cell;
+    vertical-align:middle;
+    text-align: center;
+    padding-bottom: 25%;
+}
+
+.content h1{
+    font-family: 'Open Sans', sans-serif;
+    color: #f9f3f4;
+    font-size: 550%;
+    text-shadow: 3px 3px #098fa8;
+}
+
+.btn {
+    font-size: 150%;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    color: #f9f3f4;
+    border: 2px solid #f9f3f4;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-left: 1%;
+}
+.btn:hover {
+    color: #156377;
+    border: 2px solid #156377;
+}
+
+.foto {
+    width: 20%;
+    float: left;
+    height: 20%;
+}
+
+.foto img {
+    width: 60%;
+    height: 45%;
+}
+
+.texto {
+    width: 50%;
+    padding-top: 20px;
+    font-family: 'Open Sans', sans-serif;
+    color: #43318ab0;
+    font-size: 100%;
+    text-shadow: -1px 1px #6f6f6f;
+}
+
+.comentario {
+    padding: 5%;
+    width: 90%;
+    /* text-align: center; */
+    margin-left: 23%;
+}
+
+
+
+
+
+
+
+
+
