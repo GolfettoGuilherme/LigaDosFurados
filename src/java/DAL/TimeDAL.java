@@ -59,7 +59,7 @@ public class TimeDAL {
     public boolean ajustarSaldoGols(TimeDTO dto) {
         boolean retorno;
         try {
-            String sql = "UPDATE tbTimes SET saldoGols = ? WHERE id = ?;";
+            String sql = "UPDATE tbTimes SET saldoGols = saldoGols + ? WHERE id = ?;";
 
             PreparedStatement update = this.conn.prepareStatement(sql);
             update.setInt(1, dto.getSaldoGols());
@@ -131,6 +131,26 @@ public class TimeDAL {
             ex.printStackTrace();
         }
         return dto;
+    }
+
+    public List<TimeDTO> buscaTimeOrdenadoPorSaldoDeGols() {
+        List<TimeDTO> lista = new ArrayList<>();
+        try {
+            String sql = "SELECT * FROM tbTimes ORDER BY saldoGols DESC";
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                TimeDTO dto = new TimeDTO();
+                dto.setId(rs.getInt("id"));
+                dto.setNome(rs.getString("nome"));
+                dto.setSaldoGols(rs.getInt("saldoGols"));
+                dto.setListaJogadores(new JogadorDAL().buscaJogadoresPorTime(dto.getId()));
+                lista.add(dto);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return lista;
     }
 
 }

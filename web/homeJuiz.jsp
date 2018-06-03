@@ -1,25 +1,120 @@
 <%@page import="DTO.JuizDTO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<% JuizDTO usuario = (JuizDTO) session.getAttribute("usuario"); %>
 <!DOCTYPE html>
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="todocss.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <%@include file="header.jsp"%>
         <title>Home do Juiz</title>
     </head>
-    <body>
-         <div class="menu">
-            <div>
-                <h1 style='    font-size: 32px;'>${usuario.getNome()}</h1>
-                <ul>
-                    <li><a href="TimeServlet?acao=lista">Organiza Times</a></li>
-                    <li><a href="JogadorServlet?acao=lista">Organiza Jogador</a></li>
-                    <li><a href="PartidaServlet?acao=lista">Organiza Partidas</a></li>
-                </ul>
+    <body class="nav-md">
+        <div class="container body">
+            <div class="main_container">
+                <%@include file="menuJuiz.jsp"%>
+                <div class="right_col" role="main">
+                    <div class="">
+                        <div class="page-title">
+                            <div class="title_left">
+                                <h3>Liga dos Furados</h3>
+                            </div>
+                        </div>
 
-                <a href="index.html">Sair</a>
+                        <div class="clearfix"></div>
+
+                        <div class="row">
+                            <div class="col-md-4 col-sm-12 col-xs-12">
+                                <div class="x_panel">
+                                    <div class="x_title">
+                                        <h2>Noticias</h2>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="x_content">
+                                        <div class="dashboard-widget-content">
+                                            <ul class="list-unstyled timeline widget" style="padding-bottom: 0px;">
+                                                <li style="background: white">
+                                                    <div class="block">
+                                                        <div class="block_content">
+                                                            <h4>Aguirre insiste que primeira derrota do São Paulo é "normal"</h4>
+                                                            <div class="byline">
+                                                                <span>12 Horas atrás</span> Redação Liga dos Furados
+                                                            </div>
+                                                            <p class="excerpt">Técnico também destaca gol impedido do Palmeiras na derrota tricolor</p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li style="background: white">
+                                                    <div class="block">
+                                                        <div class="block_content">
+                                                            <h4>Torcedor rival causa confusão com jogadores do São Paulo na saída</h4>
+                                                            <div class="byline">
+                                                                <span>13 Horas atrás</span> Redação Liga dos Furados
+                                                            </div>
+                                                            <p class="excerpt">Petros e Jean são hostilizados; agressor é retirado por seguranças alviverdes</p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li style="background: white">
+                                                    <div class="block">
+                                                        <div class="block_content">
+                                                            <h4>São Paulo perde Nenê e Bruno Alves para jogo contra Internacional; Hudson é dúvida</h4>
+                                                            <div class="byline">
+                                                                <span>14 Horas atrás</span> Redação Liga dos Furados
+                                                            </div>
+                                                            <p class="excerpt">Meia e zagueiro estão suspensos para jogo de terça-feira, e volante sente a coxa direita</p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li style="background: white">
+                                                    <div class="block">
+                                                        <div class="block_content">
+                                                            <h4>É campeão! São Paulo goleia e conquista Copa do Brasil Sub-20</h4>
+                                                            <div class="byline">
+                                                                <span>15 Horas atrás</span> Redação Liga dos Furados
+                                                            </div>
+                                                            <p class="excerpt">Tricolor faz 4 a 0 no Corinthians no Morumbi</p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="x_panel">
+                                    <div class="x_title">
+                                        <h2>Tabela da Liga</h2>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="x_content">
+                                        <h4>Melhores Times (em saldo de gols)</h4>
+                                        <c:forEach items="${listaTimesOrdenada}" var="time">
+                                            <div class="widget_summary">
+                                                <div class="w_left w_25">
+                                                    <span>${time.nome}</span>
+                                                </div>
+                                                <div class="w_center w_55">
+                                                    <div class="progress">
+                                                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="${time.saldoGols}" aria-valuemin="0" aria-valuemax="30" style="width: ${time.saldoGols}%;">
+                                                            <span class="sr-only">${time.saldoGols}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="w_right w_20">
+                                                    <span>${time.saldoGols}</span>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </c:forEach>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-         </div>
+        </div>
+        <%@include file="rodape.jsp"%>
     </body>
 </html>

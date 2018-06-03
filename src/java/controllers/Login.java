@@ -1,6 +1,7 @@
 package controllers;
 
 import BLL.JogadorBLL;
+import BLL.TimeBLL;
 import DTO.JogadorDTO;
 import DTO.JuizDTO;
 import java.io.IOException;
@@ -11,6 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class Login extends HttpServlet {
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("listaTimesOrdenada", new TimeBLL().buscaTimeOrdenadoPorSaldoDeGols());
+        request.getRequestDispatcher("/homeJuiz.jsp").forward(request, response);
+    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -25,6 +32,7 @@ public class Login extends HttpServlet {
                 request.setAttribute("usuario", dto);
                 HttpSession session = request.getSession(true);
                 session.setAttribute("usuario", dto);
+                request.setAttribute("listaTimesOrdenada", new TimeBLL().buscaTimeOrdenadoPorSaldoDeGols());
                 paginaDestino = "/homeJuiz.jsp";
             } else {
                 request.setAttribute("mensagem", "usuario não cadastrado");

@@ -39,7 +39,7 @@ public class JogadorServlet extends HttpServlet {
                 JogadorDTO dto = bll.buscaJogadorPorId(idJogador);
                 bll.deletaJogador(dto);
 
-                request.getRequestDispatcher("/JogadorServlet").forward(request, response);
+                request.getRequestDispatcher("/listaJogadores.jsp").forward(request, response);
                 break;
             default:
                 request.setAttribute("lisstaJogadores", new JogadorBLL().buscarTodosJogadores());

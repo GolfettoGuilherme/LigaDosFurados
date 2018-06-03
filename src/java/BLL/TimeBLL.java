@@ -38,4 +38,8 @@ public class TimeBLL {
     public TimeDTO buscaTimePorId(int id) {
         return new TimeDAL().buscarTimePorId(id);
     }
+
+    public List<TimeDTO> buscaTimeOrdenadoPorSaldoDeGols() {
+        return new TimeDAL().buscaTimeOrdenadoPorSaldoDeGols();
+    }
 }

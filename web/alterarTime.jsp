@@ -1,25 +1,64 @@
 <%@page import="DTO.JuizDTO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<% JuizDTO usuario = (JuizDTO) session.getAttribute("usuario");%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Altera Time</title>
+        <title>Cadastro Time</title>
+        <%@include file="header.jsp" %>
     </head>
-    <body>
-        <h1>Bem Vindo Juiz: ${usuario.getNome()}!</h1>
-        <h1>Alteração do time ${time.nome}</h1>
-        <form role="form" method="POST" action="TimeServlet">
-            <input type='hidden' name="acao" value="altera"/>
-            <input type="hidden" name="idTime" value="${time.id}"/>
-            Nome:
-            <input type="text" name="txtNomeTime" value='${time.nome}'/>
-            <br>
-            Saldo Gols:
-            <input type="number" name="txtSaldoGolsTime" value="${time.saldoGols}"/>
-            <br>
-            <input type="submit" value="Enviar"/>
-        </form>
+    <body class="nav-md">
+        <div class="container body">
+            <div class="main_container">
+                <%@include file="menuJuiz.jsp"%>
+                <div class="right_col" role="main">
+                    <div class="">
+                        <div class="page-title">
+                            <div class="title_left">
+                                <h3>Liga dos Furados</h3>
+                            </div>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="x_panel">
+                                    <div class="x_title">
+                                        <h2>Alteração do time ${time.nome}</h2>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="x_content">
+                                        <form role="form" method="POST" action="TimeServlet" class="form-horizontal form-label-left">
+                                            <input type='hidden' name="acao" value="altera"/>
+                                            <input type="hidden" name="idTime" value="${time.id}"/>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name" style=" text-align:  right;">Nome do Time:<span class="required">*</span>
+                                                </label>
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                                    <input type="text" id="first-name" name="txtNomeTime" value='${time.nome}' required="required" class="form-control col-md-7 col-xs-12">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="saldo-gols" style=" text-align:  right;">Saldo de Gols:<span class="required">*</span>
+                                                </label>
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                                    <input type="number" id="saldo-gols" name="txtSaldoGolsTime" value="${time.saldoGols}"required="required" class="form-control col-md-7 col-xs-12">
+                                                </div>
+                                            </div>
+
+                                            <div clas="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                                <input type="submit" class="btn btn-success" value="Alterar"/>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%@include file="rodape.jsp"%>
     </body>
 </html>

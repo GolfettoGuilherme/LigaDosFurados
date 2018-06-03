@@ -77,7 +77,7 @@ public class PartidaDAL {
         List<PartidaDTO> lista = new ArrayList<>();
         TimeDAL timeDal = new TimeDAL();
         try {
-            String sql = "SELECT * FROM tbPartidas";
+            String sql = "SELECT * FROM tbPartidas ORDER BY id DESC";
             PreparedStatement st = conn.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {

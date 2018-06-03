@@ -21,15 +21,18 @@ public class PartidaServlet extends HttpServlet {
             case "lista":
                 request.setAttribute("listaTimes", new TimeBLL().buscaTimes());
                 request.setAttribute("listaPartidas", new PartidaBLL().buscaPartidas());
+                request.setAttribute("listaTimesOrdenada", new TimeBLL().buscaTimeOrdenadoPorSaldoDeGols());
                 request.getRequestDispatcher("/listaPartidas.jsp").forward(request, response);
                 break;
             case "cadastro":
                 request.setAttribute("listaTimes", new TimeBLL().buscaTimes());
+                request.setAttribute("listaTimesOrdenada", new TimeBLL().buscaTimeOrdenadoPorSaldoDeGols());
                 request.getRequestDispatcher("/novaPartida.jsp").forward(request, response);
                 break;
             default:
                 request.setAttribute("listaTimes", new TimeBLL().buscaTimes());
                 request.setAttribute("listaPartidas", new PartidaBLL().buscaPartidas());
+                request.setAttribute("listaTimesOrdenada", new TimeBLL().buscaTimeOrdenadoPorSaldoDeGols());
                 request.getRequestDispatcher("/listaPartidas.jsp").forward(request, response);
                 break;
         }
@@ -51,6 +54,7 @@ public class PartidaServlet extends HttpServlet {
 
                 request.setAttribute("listaTimes", new TimeBLL().buscaTimes());
                 request.setAttribute("listaPartidas", new PartidaBLL().buscaPartidas());
+                request.setAttribute("listaTimesOrdenada", new TimeBLL().buscaTimeOrdenadoPorSaldoDeGols());
                 request.getRequestDispatcher("/listaPartidas.jsp").forward(request, response);
                 break;
         }
