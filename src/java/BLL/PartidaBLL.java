@@ -26,4 +26,8 @@ public class PartidaBLL {
         return new PartidaDAL().registrarPartida(dto);
     }
 
+    public int contaQuantasPartidas() {
+        return new PartidaDAL().contaQuantasPartidas();
+    }
+
 }

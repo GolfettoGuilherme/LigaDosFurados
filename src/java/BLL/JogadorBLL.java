@@ -49,4 +49,8 @@ public class JogadorBLL {
     public JogadorDTO buscaJogadorPorId(int idJogador) {
         return new JogadorDAL().buscaJogadorPorId(idJogador);
     }
+
+    public int contaQuantosJogadores() {
+        return new JogadorDAL().contaQuantosJogadores();
+    }
 }

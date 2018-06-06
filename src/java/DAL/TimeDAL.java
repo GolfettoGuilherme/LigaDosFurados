@@ -153,4 +153,34 @@ public class TimeDAL {
         return lista;
     }
 
+    public int contaQuantosTimes() {
+        int cont = 0;
+        try {
+            String sql = "SELECT count(*) AS total FROM tbTimes";
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            if (rs.next()) {
+                cont = rs.getInt("total");
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return cont;
+    }
+
+    public int contaQuantosGols() {
+        int cont = 0;
+        try {
+            String sql = "SELECT SUM(saldoGols) AS totalGols FROM tbtimes";
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            if (rs.next()) {
+                cont = rs.getInt("totalGols");
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return cont;
+    }
+
 }

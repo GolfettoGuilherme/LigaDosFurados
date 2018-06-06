@@ -36,7 +36,8 @@
                                                 <tr>
                                                     <th scope="col">Nome do Time</th>
                                                     <th scope="col">Saldo de gols</th>
-                                                    <th scope="col" colspan="2" style="text-align: center">Ações</th>
+                                                    <th scope="col">Atualizar</th>
+                                                    <th scope="col">Deletar</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -44,8 +45,8 @@
                                                     <tr>
                                                         <td>${time.nome}</td>
                                                         <td>${time.saldoGols}</td>
-                                                        <td><a href='TimeServlet?acao=alteracao&idTime=${time.id}'><i class="fas fa-pencil-alt"></i> Atualizar</a></td>
-                                                        <td><a href='TimeServlet?acao=remocao&idTime=${time.id}'><i class="far fa-trash-alt"></i> Deletar</a></td>
+                                                        <td><a href='TimeServlet?acao=alteracao&idTime=${time.id}' class="blue"><i class="fas fa-pencil-alt"></i> Atualizar</a></td>
+                                                        <td><a href='TimeServlet?acao=remocao&idTime=${time.id}'  class="red"><i class="far fa-trash-alt"></i> Deletar</a></td>
                                                     </tr>
                                                 </c:forEach>
                                             </tbody>

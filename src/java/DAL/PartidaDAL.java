@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -100,6 +101,21 @@ public class PartidaDAL {
         }
 
         return lista;
+    }
+
+    public int contaQuantasPartidas() {
+        int totalJogos = 0;
+        try {
+            String sql = "SELECT COUNT(*) AS total FROM tbpartidas";
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            if (rs.next()) {
+                totalJogos = rs.getInt("total");
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return totalJogos;
     }
 
 }

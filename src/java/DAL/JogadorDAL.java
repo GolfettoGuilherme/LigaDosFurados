@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -209,5 +210,20 @@ public class JogadorDAL {
             ex.printStackTrace();
         }
         return dto;
+    }
+
+    public int contaQuantosJogadores() {
+        int total = 0;
+        try {
+            String sql = "SELECT COUNT(*) AS total FROM tbjogadores";
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            if (rs.next()) {
+                total = rs.getInt("total");
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return total;
     }
 }

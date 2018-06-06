@@ -42,7 +42,8 @@
                                                     <th scope="col">Saldo de Gols</th>
                                                     <th scope="col">Login</th>
                                                     <th scope="col">Time</th>
-                                                    <th scope="col" colspan="2" style="text-align: center">Ações</th>
+                                                    <th scope="col">Atualizar</th>
+                                                    <th scope="col">Deletar</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -52,8 +53,8 @@
                                                         <td>${jogador.saldoGols}</td>
                                                         <td>${jogador.login}</td>
                                                         <td><% out.print(bll.buscaTimePorId(((JogadorDTO) pageContext.getAttribute("jogador")).getIdTime()).getNome());%></td>
-                                                        <td><a href='JogadorServlet?acao=alteracao&idJogador=${jogador.id}'><i class="fas fa-pencil-alt"></i> Atualizar</a></td>
-                                                        <td><a href='JogadorServlet?acao=remocao&idJogador=${jogador.id}'><i class="far fa-trash-alt"></i> Deletar</a></td>
+                                                        <td><a href='JogadorServlet?acao=alteracao&idJogador=${jogador.id}' class="blue"><i class="fas fa-pencil-alt"></i> Atualizar</a></td>
+                                                        <td><a href='JogadorServlet?acao=remocao&idJogador=${jogador.id}' class="red"><i class="far fa-trash-alt"></i> Deletar</a></td>
                                                     </tr>
                                                 </c:forEach>
                                             </tbody>
@@ -67,7 +68,7 @@
             </div>
             <script>
                 $(document).ready(function() {
-                    $('#tabela-jogadores').DataTable();
+                    $('.tabela-jogadores').DataTable();
                 });
             </script>
         </div>

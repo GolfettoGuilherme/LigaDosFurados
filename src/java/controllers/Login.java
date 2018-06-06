@@ -1,6 +1,7 @@
 package controllers;
 
 import BLL.JogadorBLL;
+import BLL.PartidaBLL;
 import BLL.TimeBLL;
 import DTO.JogadorDTO;
 import DTO.JuizDTO;
@@ -16,6 +17,11 @@ public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("listaTimesOrdenada", new TimeBLL().buscaTimeOrdenadoPorSaldoDeGols());
+        request.setAttribute("totalTimes", new TimeBLL().contaQuantosTimes());
+        request.setAttribute("totalGols", new TimeBLL().contaQuantosGols());
+        request.setAttribute("totalJogadores", new JogadorBLL().contaQuantosJogadores());
+        request.setAttribute("totalPartidas", new PartidaBLL().contaQuantasPartidas());
+
         request.getRequestDispatcher("/homeJuiz.jsp").forward(request, response);
     }
 
@@ -29,10 +35,13 @@ public class Login extends HttpServlet {
         if (tipoJogador.equals("Juiz")) {
             JuizDTO dto = new JogadorBLL().loginJuiz(usuario, senha);
             if (dto != null) {
-                request.setAttribute("usuario", dto);
                 HttpSession session = request.getSession(true);
                 session.setAttribute("usuario", dto);
                 request.setAttribute("listaTimesOrdenada", new TimeBLL().buscaTimeOrdenadoPorSaldoDeGols());
+                request.setAttribute("totalTimes", new TimeBLL().contaQuantosTimes());
+                request.setAttribute("totalGols", new TimeBLL().contaQuantosGols());
+                request.setAttribute("totalJogadores", new JogadorBLL().contaQuantosJogadores());
+                request.setAttribute("totalPartidas", new PartidaBLL().contaQuantasPartidas());
                 paginaDestino = "/homeJuiz.jsp";
             } else {
                 request.setAttribute("mensagem", "usuario não cadastrado");

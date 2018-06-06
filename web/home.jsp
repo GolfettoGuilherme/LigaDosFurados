@@ -20,14 +20,11 @@
                             <div class="col-md-4"></div>
                             <div class="col-md-4">
                                 <h1>Login</h1>
-                                <input type="text" name="usuario" class="form-control" placeholder="Usuário"/>
+                                <input type="text" name="usuario" class="form-control" placeholder="Usuário" value="admin"/>
                                 <br>
-                                <input type="password" name="senha" class="form-control" placeholder="Senha"/>
+                                <input type="password" name="senha" class="form-control" placeholder="Senha" value="admin"/>
                                 <br>
-                                <select name="tipoJogador" class="form-control">
-                                    <option value="Juiz">Juiz</option>
-                                    <option value="Jogador">Jogador</option>
-                                </select>
+                                <input type="hidden" value="Juiz" name="tipoJogador"/>
                                 <br>
                                 <input type="submit" value="logar" class="btn btn-primary"/>
                             </div>

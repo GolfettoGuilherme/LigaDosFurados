@@ -9,7 +9,7 @@
         </div>
         <div class="clearfix"></div>
         <div class="profile clearfix">
-            <p class="site_title"> Bem Vindo, ${usuario.getNome()} </p>
+            <p class="site_title">${usuario.nome} </p>
             <div class="clearfix"></div>
         </div>
         <br />

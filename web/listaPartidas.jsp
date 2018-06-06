@@ -27,7 +27,7 @@
                         <div class="clearfix"></div>
 
                         <div class="row">
-                            <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
                                 <div class="x_panel">
                                     <div class="x_title">
                                         <h2>Jogos Encerados</h2>
@@ -40,24 +40,23 @@
                                                 <c:forEach items="${listaPartidas}" var="partida">
                                                     <% TimeDTO timeCasa = ((PartidaDTO) pageContext.getAttribute("partida")).getTimeCasa();%>
                                                     <% TimeDTO timeAdversario = ((PartidaDTO) pageContext.getAttribute("partida")).getTimeAdversario();%>
-                                                    <li style="background: white">
-                                                        <div class="block">
-                                                            <div class="block_content">
-                                                                <h4><% out.print(timeCasa.getNome());%> <b>${partida.golsCasa}</b> X <b>${partida.goldAdversario}</b> <% out.print(timeAdversario.getNome());%></h4>
-                                                                <div class="byline">
-                                                                    <span>Jogo encerrado</span>
-                                                                </div>
-                                                                <p class="excerpt"></p>
-                                                            </div>
+                                                    <article class="media event">
+                                                        <a class="pull-left date">
+                                                            <p class="month">Junho</p>
+                                                            <p class="day">${partida.id}</p>
+                                                        </a>
+                                                        <div class="media-body">
+                                                            <a class="title" href="#"><% out.print(timeCasa.getNome());%> <b>${partida.golsCasa}</b> X <b>${partida.goldAdversario}</b> <% out.print(timeAdversario.getNome());%></a>
+                                                            <p>Jogo encerrado.</p>
                                                         </div>
-                                                    </li>
+                                                    </article>
                                                 </c:forEach>
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
                                 <div class="x_panel">
                                     <div class="x_title">
                                         <h2>Tabela</h2>

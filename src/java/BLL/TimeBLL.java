@@ -42,4 +42,12 @@ public class TimeBLL {
     public List<TimeDTO> buscaTimeOrdenadoPorSaldoDeGols() {
         return new TimeDAL().buscaTimeOrdenadoPorSaldoDeGols();
     }
+
+    public int contaQuantosTimes() {
+        return new TimeDAL().contaQuantosTimes();
+    }
+
+    public int contaQuantosGols() {
+        return new TimeDAL().contaQuantosGols();
+    }
 }

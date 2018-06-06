@@ -1,5 +1,6 @@
 <%@page import="DTO.JuizDTO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,11 +20,33 @@
                                 <h3>Liga dos Furados</h3>
                             </div>
                         </div>
-
                         <div class="clearfix"></div>
-
+                        <div class="x_panel">
+                            <div class="row tile_count">
+                                <div class="col-md-3 col-sm-4 col-xs-6 tile_stats_count">
+                                    <span class="count_top"><i class="fa fa-group"></i> Times Cadastrados</span>
+                                    <div class="count red"><c:out value = "${totalTimes}"/></div>
+                                    <span class="count_bottom">Times prontos pro FIGHT</span>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6 tile_stats_count">
+                                    <span class="count_top"><i class="fa fa-user"></i> Jogadores Cadastrados</span>
+                                    <div class="count blue">${totalJogadores}</div>
+                                    <span class="count_bottom">Jogadores arrumando o meião</span>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6 tile_stats_count">
+                                    <span class="count_top"><i class="fa fa-futbol-o"></i> Partidas Realizados</span>
+                                    <div class="count ">${totalPartidas}</div>
+                                    <span class="count_bottom">Cheias de bolas murchas</span>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6 tile_stats_count">
+                                    <span class="count_top"><i class="fa fa-futbol-o"></i> Gols Feitos</span>
+                                    <div class="count green">${totalGols} </div>
+                                    <span class="count_bottom">(poderiam ser mais né ?)</span>
+                                </div>
+                            </div>
+                        </div>
                         <div class="row">
-                            <div class="col-md-4 col-sm-12 col-xs-12">
+                            <div class="col-md-6 col-sm-12 col-xs-12">
                                 <div class="x_panel">
                                     <div class="x_title">
                                         <h2>Noticias</h2>
@@ -81,7 +104,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
                                 <div class="x_panel">
                                     <div class="x_title">
                                         <h2>Tabela da Liga</h2>
@@ -96,7 +119,7 @@
                                                 </div>
                                                 <div class="w_center w_55">
                                                     <div class="progress">
-                                                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="${time.saldoGols}" aria-valuemin="0" aria-valuemax="30" style="width: ${time.saldoGols}%;">
+                                                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="${time.saldoGols}" aria-valuemin="0" aria-valuemax="100" style="width: ${time.saldoGols}%;">
                                                             <span class="sr-only">${time.saldoGols}</span>
                                                         </div>
                                                     </div>
