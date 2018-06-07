@@ -42,11 +42,11 @@
                                                     <% TimeDTO timeAdversario = ((PartidaDTO) pageContext.getAttribute("partida")).getTimeAdversario();%>
                                                     <article class="media event">
                                                         <a class="pull-left date">
-                                                            <p class="month">Junho</p>
+                                                            <p class="month">Partida</p>
                                                             <p class="day">${partida.id}</p>
                                                         </a>
                                                         <div class="media-body">
-                                                            <a class="title" href="#"><% out.print(timeCasa.getNome());%> <b>${partida.golsCasa}</b> X <b>${partida.goldAdversario}</b> <% out.print(timeAdversario.getNome());%></a>
+                                                            <p><% out.print(timeCasa.getNome());%> <b>${partida.golsCasa}</b> X <b>${partida.goldAdversario}</b> <% out.print(timeAdversario.getNome());%></p>
                                                             <p>Jogo encerrado.</p>
                                                         </div>
                                                     </article>
@@ -90,5 +90,6 @@
                 </div>
             </div>
         </div>
+        <%@include file="rodape.jsp"%>
     </body>
 </html>

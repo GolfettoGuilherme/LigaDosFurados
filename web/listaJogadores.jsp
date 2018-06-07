@@ -3,7 +3,7 @@
 <%@page import="DTO.JuizDTO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
-<% TimeBLL bll = new TimeBLL();%>
+<jsp:useBean id="bll" class="BLL.TimeBLL"/>
 <!DOCTYPE html>
 <html>
     <head>
@@ -52,7 +52,8 @@
                                                         <td>${jogador.nome}</td>
                                                         <td>${jogador.saldoGols}</td>
                                                         <td>${jogador.login}</td>
-                                                        <td><% out.print(bll.buscaTimePorId(((JogadorDTO) pageContext.getAttribute("jogador")).getIdTime()).getNome());%></td>
+
+                                                        <td> <c:out value="${bll.buscaTimePorId(jogador.idTime).nome}" />
                                                         <td><a href='JogadorServlet?acao=alteracao&idJogador=${jogador.id}' class="blue"><i class="fas fa-pencil-alt"></i> Atualizar</a></td>
                                                         <td><a href='JogadorServlet?acao=remocao&idJogador=${jogador.id}' class="red"><i class="far fa-trash-alt"></i> Deletar</a></td>
                                                     </tr>

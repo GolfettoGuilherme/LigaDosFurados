@@ -26,7 +26,7 @@
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <div class="x_panel">
                                     <div class="x_title">
-                                        <h2>Novo Jogador</h2>
+                                        <h3>Nova Partida</h3>
                                         <div class="clearfix"></div>
                                     </div>
                                     <div class="x_content">
@@ -40,6 +40,7 @@
                                                         <option value="${time.id}">${time.nome}</option>
                                                     </c:forEach>
                                                 </select>
+                                                <label class="control-label col-md-1 col-sm-1 col-xs-12">Gols</label>
                                                 <input class="form-control" style='margin-left: 58.3%;width: 10%' type="number" name="txtSaldoGolsTimeCasa"/>
                                             </div>
                                             <div class="form-group">
@@ -50,6 +51,7 @@
                                                         <option value="${time.id}">${time.nome}</option>
                                                     </c:forEach>
                                                 </select>
+                                                <label class="control-label col-md-1 col-sm-1 col-xs-12">Gols</label>
                                                 <input class="form-control" style='margin-left: 58.3%;width: 10%' type="number" name="txtSaldoGolsTimeAdversario"/>
                                             </div>
 
@@ -66,5 +68,6 @@
             </div>
         </div>
     </div>
+    <%@include file="rodape.jsp"%>
 </body>
 </html>
