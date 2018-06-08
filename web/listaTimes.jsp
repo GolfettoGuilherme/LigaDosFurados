@@ -7,7 +7,7 @@
         <%@include file="header.jsp" %>
         <title>Organiza Times</title>
     </head>
-    <body class="nav-md">
+    <body class="nav-md footer_fixed">
         <div class="container body">
             <div class="main_container">
                 <%@include file="menuJuiz.jsp"%>
@@ -29,7 +29,7 @@
                                         <div class="clearfix"></div>
                                     </div>
                                     <div class="x_content">
-                                        <a href='TimeServlet?acao=cadastro' class="btn btn-primary">Novo Time</a>
+                                        <a href='TimeServlet?acao=cadastro' class="btn btn-info">Novo Time</a>
                                         <br><br>
                                         <table class="table table-hover" id="tabela-times">
                                             <thead class="thead-dark">
@@ -45,8 +45,8 @@
                                                     <tr>
                                                         <td>${time.nome}</td>
                                                         <td>${time.saldoGols}</td>
-                                                        <td><a href='TimeServlet?acao=alteracao&idTime=${time.id}' class="blue"><i class="fas fa-pencil-alt"></i> Atualizar</a></td>
-                                                        <td><a href='TimeServlet?acao=remocao&idTime=${time.id}'  class="red"><i class="far fa-trash-alt"></i> Deletar</a></td>
+                                                        <td><a href='TimeServlet?acao=alteracao&idTime=${time.id}' class="btn btn-info"><i class="fas fa-pencil-alt"></i> Atualizar</a></td>
+                                                        <td><a href='TimeServlet?acao=remocao&idTime=${time.id}'  class="red btn btn-danger"><i class="far fa-trash-alt"></i> Deletar</a></td>
                                                     </tr>
                                                 </c:forEach>
                                             </tbody>

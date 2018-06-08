@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%@include file="header.jsp"%>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/jquery.js"></script>
     <link href="css/animate.css" rel="stylesheet"/>
     <link href="css/waypoints.css" rel="stylesheet"/>
     <script src="js/jquery.waypoints.min.js" type="text/javascript"></script>

@@ -1,6 +1,6 @@
 <%@page import="DTO.JuizDTO"%>
 <% JuizDTO usuario = (JuizDTO) session.getAttribute("usuario");%>
-<div class="col-md-3 left_col">
+<div class="col-md-3 left_col menu_fixed">
     <div class="left_col scroll-view">
         <div class="navbar nav_title" style="border: 0;">
             <a href="index.html" class="site_title">
@@ -21,6 +21,7 @@
                     <li><a href="TimeServlet?acao=lista"><i class="fa fa-futbol-o"></i>Organiza Times</a></li>
                     <li><a href="JogadorServlet?acao=lista"><i class="fa fa-futbol-o"></i>Organiza Jogador</a></li>
                     <li><a href="PartidaServlet?acao=lista"><i class="fa fa-futbol-o"></i>Organiza Partidas</a></li>
+                    <li><a href="RelatorioServlet"><i class="fa fa-futbol-o"></i>Relatórios</a></li>
                     <li><a href="index.html"><i class="fa fa-power-off"></i> SAIR </a>
 
                     </li>

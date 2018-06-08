@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Organiza Jogadores</title>
     </head>
-    <body class="nav-md">
+    <body class="nav-md footer_fixed">
         <div class="container body">
             <div class="main_container">
                 <%@include file="menuJuiz.jsp"%>
@@ -33,7 +33,7 @@
                                         <div class="clearfix"></div>
                                     </div>
                                     <div class="x_content">
-                                        <a href='JogadorServlet?acao=cadastro' class="btn btn-primary">Novo Jogador</a>
+                                        <a href='JogadorServlet?acao=cadastro' class="btn btn-info">Novo Jogador</a>
                                         <br><br>
                                         <table class="table tabela-jogadores" style="width:95%;">
                                             <thead class="thead-dark">
@@ -54,8 +54,8 @@
                                                         <td>${jogador.login}</td>
 
                                                         <td> <c:out value="${bll.buscaTimePorId(jogador.idTime).nome}" />
-                                                        <td><a href='JogadorServlet?acao=alteracao&idJogador=${jogador.id}' class="blue"><i class="fas fa-pencil-alt"></i> Atualizar</a></td>
-                                                        <td><a href='JogadorServlet?acao=remocao&idJogador=${jogador.id}' class="red"><i class="far fa-trash-alt"></i> Deletar</a></td>
+                                                        <td><a href='JogadorServlet?acao=alteracao&idJogador=${jogador.id}' class="btn btn-info"><i class="fas fa-pencil-alt"></i> Atualizar</a></td>
+                                                        <td><a href='JogadorServlet?acao=remocao&idJogador=${jogador.id}' class="red btn btn-danger"><i class="far fa-trash-alt"></i> Deletar</a></td>
                                                     </tr>
                                                 </c:forEach>
                                             </tbody>

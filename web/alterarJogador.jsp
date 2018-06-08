@@ -12,7 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Alteração do Jogador: ${jogador.nome}</title>
     </head>
-    <body class="nav-md">
+    <body class="nav-md footer_fixed">
         <div class="container body">
             <div class="main_container">
                 <%@include file="menuJuiz.jsp"%>

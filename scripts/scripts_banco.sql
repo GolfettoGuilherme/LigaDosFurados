@@ -1,4 +1,5 @@
 CREATE SCHEMA liga_dos_furados;
+USE liga_dos_furados;
 CREATE TABLE tbJogadores(
 	id BIGINT(10) PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(150) NOT NULL,

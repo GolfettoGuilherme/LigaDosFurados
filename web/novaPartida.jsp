@@ -8,7 +8,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Registrar Partida</title>
     </head>
-    <body class="nav-md">
+    <body class="nav-md footer_fixed">
         <div class="container body">
             <div class="main_container">
                 <%@include file="menuJuiz.jsp"%>

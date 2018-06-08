@@ -2,11 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/E:/work/LigaDosFurados/web/listaPartidas.jsp</file>
-            <file>file:/E:/work/LigaDosFurados/src/java/controllers/PartidaServlet.java</file>
-            <file>file:/E:/work/LigaDosFurados/src/java/DAL/PartidaDAL.java</file>
-            <file>file:/E:/work/LigaDosFurados/src/java/controllers/Login.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

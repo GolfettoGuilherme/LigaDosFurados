@@ -8,7 +8,7 @@
         <%@include file="header.jsp"%>
         <title>Home do Juiz</title>
     </head>
-    <body class="nav-md">
+    <body class="nav-md footer_fixed">
         <div class="container body">
             <div class="main_container">
                 <%@include file="menuJuiz.jsp"%>
@@ -20,27 +20,39 @@
                             </div>
                         </div>
                         <div class="clearfix"></div>
-                        <div class="x_panel">
+                        <div class="">
                             <div class="row tile_count">
-                                <div class="col-md-3 col-sm-4 col-xs-6 tile_stats_count">
-                                    <span class="count_top"><i class="fa fa-group"></i> Times Cadastrados</span>
-                                    <div class="count red"><c:out value = "${totalTimes}"/></div>
-                                    <span class="count_bottom">Times prontos pro FIGHT</span>
+                                <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                    <div class="tile-stats" style="background-color: #00c0ef !important; color: white;">
+                                      <div class="icon"><i class="fa fa-group" style="color:white"></i></div>
+                                      <div class="count"><c:out value = "${totalTimes}"/></div>
+                                      <h3 style="color:white;font-weight: bold;">Times</h3>
+                                      <p>Times prontos pro FIGHT</p>
+                                    </div>
                                 </div>
-                                <div class="col-md-3 col-sm-4 col-xs-6 tile_stats_count">
-                                    <span class="count_top"><i class="fa fa-user"></i> Jogadores Cadastrados</span>
-                                    <div class="count blue">${totalJogadores}</div>
-                                    <span class="count_bottom">Jogadores arrumando o meião</span>
+                                      <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                    <div class="tile-stats"  style="background-color: #dd4b39 !important; color: white;">
+                                      <div class="icon"><i class="fa fa-group" style="color:white"></i></div>
+                                      <div class="count">${totalJogadores}</div>
+                                      <h3 style="color:white;font-weight: bold;">Jogadores</h3>
+                                      <p>Jogadores arrumando o meião</p>
+                                    </div>
                                 </div>
-                                <div class="col-md-3 col-sm-4 col-xs-6 tile_stats_count">
-                                    <span class="count_top"><i class="fa fa-futbol-o"></i> Partidas Realizados</span>
-                                    <div class="count ">${totalPartidas}</div>
-                                    <span class="count_bottom">Cheias de bolas murchas</span>
+                                      <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                    <div class="tile-stats" style="background-color: #f39c12 !important; color: white;">
+                                      <div class="icon"><i class="fa fa-soccer-ball-o" style="color:white"></i></div>
+                                      <div class="count">${totalPartidas}</div>
+                                      <h3 style="color:white;font-weight: bold;"> Partidas</h3>
+                                      <p>Cheias de bolas murchas</p>
+                                    </div>
                                 </div>
-                                <div class="col-md-3 col-sm-4 col-xs-6 tile_stats_count">
-                                    <span class="count_top"><i class="fa fa-futbol-o"></i> Gols Feitos</span>
-                                    <div class="count green">${totalGols} </div>
-                                    <span class="count_bottom">(poderiam ser mais né ?)</span>
+                                      <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                    <div class="tile-stats" style="background-color: #00a65a !important; color: white;">
+                                      <div class="icon"><i class="fa fa-soccer-ball-o" style="color:white"></i></div>
+                                      <div class="count">${totalGols} </div>
+                                      <h3 style="color:white;font-weight: bold;">Gols</h3>
+                                      <p>(poderiam ser mais né ?)</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
